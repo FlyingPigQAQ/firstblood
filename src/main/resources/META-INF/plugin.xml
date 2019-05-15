@@ -1,0 +1,40 @@
+<idea-plugin>
+    <id>com.pigcanfly.FirstBlood</id>
+    <name>Hello Action Project</name>
+    <version>0.0.1</version>
+    <vendor email="" url="">pigcanfly</vendor>
+
+    <description>Hello Idea plugin XXXXXXXXXXXXXXXXXXXXXXXXXXXX</description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <!--像素大小 16x16 -->
+        <action class="com.pigcanfly.translate.actions.TranslateAction" id="helloAction"
+                icon="/icons/pluginPng.png"/>
+        <!--        <group id="MyPlugin.SampleMenu" text="Greeting" description="Greeting menu">-->
+        <!--            <add-to-group group-id="MainMenu" anchor="last"/>-->
+        <!--            <action id="com.pigcanfly.translate.actions.HelloAction" class="com.pigcanfly.translate.actions.HelloAction" text="Hello" description="Says hello"/>-->
+        <!--        </group>-->
+<!--        <group id="MyPlugin.SampleMenu1" description="Tools menu">-->
+<!--            <add-to-group group-id="MainToolBar" anchor="last"/>-->
+<!--            <action id="Myplugin.Textboxes" class="com.pigcanfly.translate.actions.HelloAction" text="Greeting"-->
+<!--                    description="Says hello"/>-->
+<!--        </group>-->
+        <!-- navBar -->
+        <group id="Pigcanfly.MenuGroup" description="Tools menu">
+            <reference ref="helloAction"/>
+            <add-to-group group-id="NavBarToolBar" anchor="last"/>
+        </group>
+
+    </actions>
+</idea-plugin>
