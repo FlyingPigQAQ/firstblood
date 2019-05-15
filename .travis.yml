@@ -16,7 +16,7 @@ deploy:
   file: "./build/distributions/*.zip"
   on:
     repo: FlyingPigQAQ/firstblood
-    tags: true
+    tags: false
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
 - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
