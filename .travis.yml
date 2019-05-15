@@ -12,6 +12,7 @@ before_deploy:
   - git tag $TRAVIS_TAG
   - ls ${TRAVIS_BUILD_DIR}/build
   - ls ${TRAVIS_BUILD_DIR}/build/distributions
+  - ls "${TRAVIS_BUILD_DIR}/build/distributions/*"
 deploy:
   provider: releases
   overwrite: true
