@@ -46,3 +46,5 @@ fabric.properties
 FirstBlood.iml
 FirstBlood.ipr
 FirstBlood.iws
+.DS_Store
+src/test/

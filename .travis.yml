@@ -4,6 +4,10 @@ os: osx
 
 
 
+# safelist
+branches:
+  only:
+    - master
 
 before_deploy:
   # Set up git user name and tag this commit
@@ -13,7 +17,7 @@ deploy:
   provider: releases
   api_key:
     secure: ndWxLslRBYhp4DukjyAcuxvk/asgf+DbBCUktxJ45GD1+ydpb0HatLzMUhvLyB2Vs0Z34Slm6KgXyDC5ecOqfIM/SSbr0Olc8wmUhsVQg0R1Lkfeje+7mfihRYUAVc/bPUj9AWmCLZpR77z+Sp93qwW7IliTna4pRKEIQL++IcBOVZyxol/wVwzONiVB3lPzNSG0Fmp0Vh7OonwzRb8wdC5+nN9Yh0/DeZLmMU4QOTV9iiYayminPQHt/0H6rssxkXujk5t/J8i25crYRKCkBKKaarVql2U3WOaVM3oe+396XltHv6GJ6SCxdVk56i7gcuEPuYZ7yJ+Ycz2jws9ViK7e2EUaM5QVDaV+a/pFgZKQhoW0zZl8ut0mbDuUkIwamLRHEoIxuDfi74zPHdth3j5OPUUE/VmKVobt9ag5N5WK744Gd6lDbPYS//eTWqk9/xSa+MsEceU6K/CAC6cjlKgA6oGzGKzrqjwCzP2TOZYKU+9ej+ErFIuZOz6EgLGCvKrj9AI5R0YnX7cJeEva+BkPmBQ8DpfAyG4+hj/4DAIes7ws8NAKAxLwr5KMl47Xi4m7DXae/dzFw7xDba5n+rTBzKVY9QyOsJa+qSXgHJcQ6GJBWIMfmxo2OCP5QkvdZC9Y82OpOKIu4OKr7HawTWRyr6dnu2W1kvpZ9qp7zqM=
-  file: "./build/distributions/*.zip"
+  file: "${TRAVIS_BUILD_DIR}/build/distributions/*"
   on:
     repo: FlyingPigQAQ/firstblood
     tags: false

@@ -1,9 +1,5 @@
 package com.pigcanfly.translate.translate;
 
-import com.google.cloud.translate.Translate;
-import com.google.cloud.translate.TranslateOptions;
-import com.google.cloud.translate.Translation;
-import com.intellij.util.Alarm;
 import com.pigcanfly.translate.UrlBuilder;
 
 /**
