@@ -4,8 +4,7 @@ os: osx
 branches:
   only:
     - master
-install:
-  - gradle build
+
 
 before_deploy:
   # Set up git user name and tag this commit
