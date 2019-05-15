@@ -2,9 +2,11 @@ language: java
 
 os: osx
 
-jdk:
-  - oraclejdk8
-
+#jdk:
+#  - oraclejdk8
+before_install:
+  - brew tap caskroom/versions
+  - brew cask install java8
 
 
 before_cache:
