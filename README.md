@@ -1,0 +1,2 @@
+# firstblood
+Intellij plugin
