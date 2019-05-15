@@ -5,6 +5,15 @@ branches:
   only:
     - master
 
+#清空缓存  默认
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+# 清空缓存 默认
+cache:
+  directories:
+    - "$HOME/.gradle/caches/"
+    - "$HOME/.gradle/wrapper/"
 
 before_deploy:
   # Set up git user name and tag this commit
@@ -14,20 +23,18 @@ before_deploy:
   - ls ${TRAVIS_BUILD_DIR}/build/distributions
 deploy:
   provider: releases
+  # 覆盖文件
   overwrite: true
   api_key:
     secure: ndWxLslRBYhp4DukjyAcuxvk/asgf+DbBCUktxJ45GD1+ydpb0HatLzMUhvLyB2Vs0Z34Slm6KgXyDC5ecOqfIM/SSbr0Olc8wmUhsVQg0R1Lkfeje+7mfihRYUAVc/bPUj9AWmCLZpR77z+Sp93qwW7IliTna4pRKEIQL++IcBOVZyxol/wVwzONiVB3lPzNSG0Fmp0Vh7OonwzRb8wdC5+nN9Yh0/DeZLmMU4QOTV9iiYayminPQHt/0H6rssxkXujk5t/J8i25crYRKCkBKKaarVql2U3WOaVM3oe+396XltHv6GJ6SCxdVk56i7gcuEPuYZ7yJ+Ycz2jws9ViK7e2EUaM5QVDaV+a/pFgZKQhoW0zZl8ut0mbDuUkIwamLRHEoIxuDfi74zPHdth3j5OPUUE/VmKVobt9ag5N5WK744Gd6lDbPYS//eTWqk9/xSa+MsEceU6K/CAC6cjlKgA6oGzGKzrqjwCzP2TOZYKU+9ej+ErFIuZOz6EgLGCvKrj9AI5R0YnX7cJeEva+BkPmBQ8DpfAyG4+hj/4DAIes7ws8NAKAxLwr5KMl47Xi4m7DXae/dzFw7xDba5n+rTBzKVY9QyOsJa+qSXgHJcQ6GJBWIMfmxo2OCP5QkvdZC9Y82OpOKIu4OKr7HawTWRyr6dnu2W1kvpZ9qp7zqM=
-  #启用通配符
+  #启用通配符，来支持 file参数通配
   file_glob: true
+  # 一定要加这个，否则travis会删除在build阶段生成的所有文件
   skip_cleanup: true
   file: ${TRAVIS_BUILD_DIR}/build/distributions/*
   on:
     repo: FlyingPigQAQ/firstblood
+    # true:只有在打标签的时候才会触发deploy
     tags: false
-before_cache:
-- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-cache:
-  directories:
-  - "$HOME/.gradle/caches/"
-  - "$HOME/.gradle/wrapper/"
+
+
