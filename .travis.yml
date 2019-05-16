@@ -35,6 +35,6 @@ deploy:
   on:
     repo: FlyingPigQAQ/firstblood
     # true:只有在打标签的时候才会触发deploy
-    tags: false
+    tags: true
 
 
