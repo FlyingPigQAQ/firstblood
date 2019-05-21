@@ -1,7 +1,5 @@
 package com.pigcanfly.translate;
 
-import java.io.UnsupportedEncodingException;
-
 /**
  * @author Tobby Quinn
  * @date 2019/05/07
@@ -474,11 +472,21 @@ public enum Lang {
     }
 
     public String getLocaleLanguage() {
-      return languageBundle.getMessage(this.getLangNameKey());
+
+         return languageBundle.getMessage(this.getLangNameKey());
     }
 
     public static  String getLocaleLanguage(String langNameKey) {
 
-       return languageBundle.getMessage(langNameKey);
+      return languageBundle.getMessage(langNameKey);
+    }
+    public static Lang getLangByCode(String code){
+        Lang[] langs = Lang.values();
+        for (int i = 0; i < langs.length; i++) {
+            if(langs[i].getCode().equals(code)){
+                return langs[i];
+            }
+        }
+        return null;
     }
 }

@@ -14,22 +14,26 @@ public class LanguageListModel extends AbstractListModel<Lang> implements ComboB
     /**
      * 遍历Enum Lang 并赋值
      */
-    private static List<Lang> langList = Arrays.asList(Lang.values());
+    private  Lang[] langList;
 
     /**
      * 每次选择的内容为LangNameKey，并不是Lang enum类型本身
      */
-    private Lang selected = Lang.AUTO;
+    private Lang selected;
+    public LanguageListModel(Lang[] langs,Lang selected){
+        this.langList=langs;
+        this.selected=selected;
+    }
 
 
     @Override
     public int getSize() {
-        return langList.size();
+        return langList.length;
     }
 
     @Override
     public Lang getElementAt(int index) {
-        return langList.get(index);
+        return langList[index];
     }
 
     @Override

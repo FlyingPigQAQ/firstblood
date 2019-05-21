@@ -86,17 +86,20 @@ public class GoogleTranslate {
     //TODO： TK 值可能发生变化
     private static final String TKK = "432726.2469917364";
 
+
+
     public static String getTranslateUrl(String text, Lang srcLang, Lang targetLang) {
         return new UrlBuilder(BASE_URL)
                 .addQueryParameter("client", "gtx")
-                //.addQueryParameters("dt", "t", /*"at",*/ "bd", "rm")
+                .addQueryParameter("dt", "t")
+                .addQueryParameter("dt", "bd")
+                .addQueryParameter("dt", "rm")
                 .addQueryParameter("dj", "1")
                 .addQueryParameter("ie", "UTF-8")
                 .addQueryParameter("oe", "UTF-8")
                 .addQueryParameter("sl", srcLang.getCode())
                 .addQueryParameter("tl", targetLang.getCode())
-                //.addQueryParameter("hl", primaryLanguage.code) // 词性的语言
-                //TODO java 实现google translate api tk算法
+                .addQueryParameter("hl", "zh-CN") // 词性的语言
                 .addQueryParameter("tk", getTk(text))
                 .addQueryParameter("q", text)
                 .build();
