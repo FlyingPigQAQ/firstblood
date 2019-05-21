@@ -20,6 +20,7 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
+import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.Arrays;
@@ -35,7 +36,7 @@ public class TranslateForm extends DialogWrapper implements Disposable {
     private JComboBox comboBox1;
     private JComboBox comboBox2;
     private JTextArea sourceArea;
-    private JTextPane targetArea;
+    private JTextArea targetArea;
 
     private Alarm alarm = new Alarm(this);
 
@@ -121,6 +122,7 @@ public class TranslateForm extends DialogWrapper implements Disposable {
     }
 
     private void initTextArea() {
+
         sourceArea.getDocument().addDocumentListener(new DocumentAdapter() {
             @Override
             protected void textChanged(@NotNull DocumentEvent e) {

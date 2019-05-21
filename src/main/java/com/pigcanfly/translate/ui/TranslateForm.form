@@ -102,10 +102,10 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <component id="b33b5" class="javax.swing.JTextArea" binding="sourceArea">
+                  <component id="3957" class="javax.swing.JTextArea" binding="sourceArea">
                     <constraints/>
                     <properties>
-                      <foreground color="-12828863"/>
+                      <wrapStyleWord value="true"/>
                     </properties>
                   </component>
                 </children>
@@ -131,12 +131,11 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <component id="e9766" class="javax.swing.JTextPane" binding="targetArea">
+                  <component id="e4cd5" class="javax.swing.JTextArea" binding="targetArea">
                     <constraints/>
                     <properties>
-                      <autoscrolls value="true"/>
                       <editable value="false"/>
-                      <foreground color="-12828863"/>
+                      <wrapStyleWord value="true"/>
                     </properties>
                   </component>
                 </children>
