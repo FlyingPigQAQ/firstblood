@@ -1,12 +1,16 @@
 package com.pigcanfly.translate.ui;
 
 import com.google.gson.Gson;
+import com.intellij.ide.actions.CopyReferenceAction;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.ide.CopyPasteManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.util.Disposer;
+import com.intellij.openapi.wm.IdeFocusManager;
 import com.intellij.ui.DocumentAdapter;
+import com.intellij.ui.WindowResizeListener;
 import com.intellij.util.Alarm;
 import com.intellij.util.io.HttpRequests;
 import com.intellij.util.io.RequestBuilder;
@@ -15,18 +19,24 @@ import com.pigcanfly.translate.LanguageListModel;
 import com.pigcanfly.translate.LanguageRender;
 import com.pigcanfly.translate.translate.GoogleTranslate;
 import com.pigcanfly.translate.translate.result.GoogleTranslateResult;
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import sun.awt.datatransfer.ClipboardTransferable;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import java.awt.*;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.event.*;
 import java.util.Arrays;
 import java.util.List;
 
 /**
+ * 1. 如果允许用户自己调整窗口大小的话，那么内部的Panel宽高不能Fixed,否则会发生内部组件大小不跟随容器大小变化。
+ * 2. 通过设置最外层JPanel的Minimum Size来限定用户最小Resize窗口
+ *
  * @author Tobby Quinn
  * @date 2019/05/05
  */
@@ -38,11 +48,15 @@ public class TranslateForm extends DialogWrapper implements Disposable {
     private JTextArea sourceArea;
     private JTextArea targetArea;
 
+    private Project myProject;
+
     private Alarm alarm = new Alarm(this);
 
     private boolean disposed = false;
 
     private Runnable translateAction = this::onTranslate;
+    private static CopyPasteManager copyPasteManager = CopyPasteManager.getInstance();
+    private IdeFocusManager focusManager = IdeFocusManager.getInstance(myProject);
 
     @Override
     public boolean isDisposed() {
@@ -60,16 +74,28 @@ public class TranslateForm extends DialogWrapper implements Disposable {
      */
     public TranslateForm(@Nullable Project project, boolean canBeParent) {
         super(project, canBeParent);
+        this.myProject=project;
         setModal(false);
         setTitle("翻译");
         init();
         initComponent();
+
     }
 
     private void initComponent() {
         initComboBox();
         initButton();
         initTextArea();
+
+    }
+
+
+    @Override
+    public void show() {
+        super.show();
+        //图形展示后执行，让光标聚焦到JTextArea输入框
+
+        focusManager.requestFocus(sourceArea,true);
     }
 
     @Nullable
@@ -118,11 +144,17 @@ public class TranslateForm extends DialogWrapper implements Disposable {
             comboBox2.setSelectedItem(sourceTmp);
             //再次发起翻译请求
             requestTranslate();
+
+
+
         });
     }
 
-    private void initTextArea() {
 
+
+    private void initTextArea() {
+       //先添加监听，再从剪切板获取内容，否则即使剪切板的内容到输入框，导致文本内容发生变化
+        //但因为监听器没加载，不会发起request请求
         sourceArea.getDocument().addDocumentListener(new DocumentAdapter() {
             @Override
             protected void textChanged(@NotNull DocumentEvent e) {
@@ -131,6 +163,17 @@ public class TranslateForm extends DialogWrapper implements Disposable {
                 }
             }
         });
+
+        //初始化，从剪切板获取数据
+//        String clipboard = CopyPasteManager.getInstance().getContents(DataFlavor.stringFlavor);
+//        if(!StringUtils.isEmpty(clipboard)){
+//            //直接set导致JTextArea水平拉长
+//          sourceArea.setText(clipboard);
+          //sourceArea.paste();
+       // sourceArea.setLineWrap(true);
+
+//        }
+
     }
 
     private void requestTranslate() {
@@ -154,7 +197,8 @@ public class TranslateForm extends DialogWrapper implements Disposable {
         ApplicationManager.getApplication().executeOnPooledThread(() -> {
             try {
                 GoogleTranslateResult resultOfGoogle = builder.connect(request -> {
-                    String result = request.readString();
+                    //2018.1版本不支持空参方法，需要手动设置
+                    String result = request.readString(null);
                     Gson gson = new Gson();
                     GoogleTranslateResult googleTranslateResult = gson.fromJson(result, GoogleTranslateResult.class);
                     return googleTranslateResult;
@@ -183,4 +227,6 @@ public class TranslateForm extends DialogWrapper implements Disposable {
         setDisposed(true);
         Disposer.dispose(this);
     }
+
+
 }

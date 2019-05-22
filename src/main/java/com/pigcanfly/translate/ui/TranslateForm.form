@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.pigcanfly.translate.ui.TranslateForm">
-  <grid id="27dc6" binding="root" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="10" vgap="4">
+  <grid id="27dc6" binding="root" layout-manager="GridLayoutManager" row-count="2" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="10" vgap="4">
     <margin top="6" left="10" bottom="10" right="10"/>
     <constraints>
       <xy x="8" y="16" width="837" height="427"/>
     </constraints>
     <properties>
       <maximumSize width="-1" height="-1"/>
-      <minimumSize width="-1" height="-1"/>
+      <minimumSize width="800" height="300"/>
       <preferredSize width="800" height="300"/>
     </properties>
     <border type="none"/>
@@ -15,7 +15,7 @@
       <grid id="849a6" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
@@ -23,14 +23,14 @@
           <grid id="1968a" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
               <component id="95870" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
@@ -39,14 +39,14 @@
           <grid id="88d85" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
               <component id="28648" class="javax.swing.JButton" binding="button1" default-binding="true">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <label value="交换"/>
@@ -58,14 +58,14 @@
           <grid id="8e6c9" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
               <component id="5a5ce" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
@@ -73,75 +73,75 @@
           </grid>
         </children>
       </grid>
-      <grid id="dc391" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <vspacer id="fb87b">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <grid id="e21d2" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties>
-          <foreground color="-12828863"/>
-        </properties>
+        <properties/>
         <border type="none"/>
         <children>
-          <grid id="5f999" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          <scrollpane id="b80bb">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <foreground color="-12828863"/>
+              <autoscrolls value="true"/>
+              <horizontalScrollBarPolicy value="31"/>
             </properties>
             <border type="none"/>
             <children>
-              <scrollpane id="b4d28">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                </constraints>
+              <component id="2d3be" class="javax.swing.JTextArea" binding="sourceArea">
+                <constraints/>
                 <properties>
-                  <foreground color="-12828863"/>
+                  <autoscrolls value="false"/>
+                  <lineWrap value="true"/>
+                  <minimumSize width="263" height="27"/>
+                  <preferredSize width="263" height="27"/>
+                  <wrapStyleWord value="true"/>
                 </properties>
-                <border type="none"/>
-                <children>
-                  <component id="3957" class="javax.swing.JTextArea" binding="sourceArea">
-                    <constraints/>
-                    <properties>
-                      <wrapStyleWord value="true"/>
-                    </properties>
-                  </component>
-                </children>
-              </scrollpane>
+              </component>
             </children>
-          </grid>
-          <grid id="fba" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          </scrollpane>
+        </children>
+      </grid>
+      <grid id="e1c3f" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <scrollpane id="22428">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <foreground color="-12828863"/>
+              <autoscrolls value="true"/>
+              <horizontalScrollBarPolicy value="31"/>
+              <requestFocusEnabled value="false"/>
             </properties>
             <border type="none"/>
             <children>
-              <scrollpane id="ce7f3">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                </constraints>
+              <component id="6bd89" class="javax.swing.JTextArea" binding="targetArea">
+                <constraints/>
                 <properties>
-                  <foreground color="-12828863"/>
+                  <autoscrolls value="false"/>
+                  <editable value="false"/>
+                  <lineWrap value="true"/>
+                  <minimumSize width="263" height="27"/>
+                  <preferredSize width="263" height="27"/>
+                  <wrapStyleWord value="true"/>
                 </properties>
-                <border type="none"/>
-                <children>
-                  <component id="e4cd5" class="javax.swing.JTextArea" binding="targetArea">
-                    <constraints/>
-                    <properties>
-                      <editable value="false"/>
-                      <wrapStyleWord value="true"/>
-                    </properties>
-                  </component>
-                </children>
-              </scrollpane>
+              </component>
             </children>
-          </grid>
+          </scrollpane>
         </children>
       </grid>
     </children>

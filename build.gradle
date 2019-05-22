@@ -29,10 +29,18 @@ intellij {
     pluginName 'First Blood'
     sandboxDirectory = "$project.buildDir/myCustom-sandbox"
 }
+
 patchPluginXml {
     changeNotes """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
+    Add base translate features.
+"""
 }
+
+//task myRun(type: JavaExec) {
+//   // classpath sourceSets.main.runtimeClasspath
+//    classpath "/Users/tobbyquinn/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2018.1/d082978a55b398ef544e7daee1dd6228b88dbfc1/ideaIC-2018.1"
+//    main = "com.pigcanfly.translate.translate.TranslateService"
+//    //args "arg1", "arg2"
+//}
 
 
