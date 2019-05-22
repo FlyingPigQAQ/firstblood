@@ -17,8 +17,9 @@ cache:
 
 before_deploy:
   # Set up git user name and tag this commit
- # - export TRAVIS_TAG=`cat build.gradle |grep -e '^version'|cut -d " " -f2|cut -d "'" -f2`
+  #- export TRAVIS_TAG=`cat build.gradle |grep -e '^version'|cut -d " " -f2|cut -d "'" -f2`
   #- git tag $TRAVIS_TAG
+  #- git push origin $TRAVIS_TAG
   - ls ${TRAVIS_BUILD_DIR}/build
   - ls ${TRAVIS_BUILD_DIR}/build/distributions
 deploy:
