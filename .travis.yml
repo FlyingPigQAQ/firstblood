@@ -1,9 +1,9 @@
 language: java
 os: osx
 # safelist
-branches:
-  only:
-    - master
+#branches:
+#  only:
+#    - master
 
 #清空缓存  默认
 before_cache:
